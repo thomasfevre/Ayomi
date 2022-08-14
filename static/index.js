@@ -10,12 +10,12 @@ window.onload = function() {
         $.ajax({
             url : '/update', type: 'POST', data: data, cache : false, contentType: false, processData: false,
             success: function (response) {
-                console.log(response);
+                // console.log(response);
                 $('#ajaxMessage').html(response);
                 $('#closeBTN').trigger('click');
                 $("#currentEmail").html('Email : '+$("#userEmail").val());
             }, error: function(e){
-               console.log(e);
+            //    console.log(e);
                $('#ajaxMessage').html(e);
             }
         });            

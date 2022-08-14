@@ -33,7 +33,6 @@ class AccountDBConnection():
     def UpdateEmail(self, oldEmail, newEmail):
         self.session = self.Session()
         userID = self.session.query(Accounts).filter_by(email=oldEmail).first()
-        print(oldEmail)
         user = self.session.query(Accounts).get(userID.id)
         user.email = newEmail
         self.session.commit()
