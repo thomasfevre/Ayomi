@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<div class="container p-2 text-center">
+    <h1>Bonjour !</h1>
+    <p id="currentEmail">Email : {{ current_user.email }}</p>
+    <p>Password : {{ current_user.password }}</p>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
+       Modifier
+    </button>
+    <a type="button" href="/unlogin" class="btn btn-primary ">Se Déconnecter</a>
+</div>
+   
+{% else %}
+    <h1>Bonjour anonyme!</h1>
+{% endif %}
+{% endblock %}
+
+
+{% block js %}
+<script defer src="{{ url_for('static',filename='index.js') }}"></script>
+{% endblock %}

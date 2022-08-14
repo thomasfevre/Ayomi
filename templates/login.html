@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+<div class="container p-2">
+    {% if login %}
+    <form id="loginForm" name="login" action="/login" method="POST">
+    {% else %}
+    <form id="loginForm" name="signup" action="/signup" method="POST">
+    {% endif %}
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="userEmail" name='userEmail' class="form-control" required/>
+          <label class="form-label" for="userEmail">Email address</label>
+        </div>
+      
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="userPsswd" name='userPsswd'  class="form-control" required/>
+          <label class="form-label" for="userPsswd">Password</label>
+        </div>
+      
+      
+        
+        {% if login %}
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Se connecter</button>
+        <!-- Register buttons -->
+        <div class="text-center">
+            <p>Not a member? <a href="/get/signup">Register</a></p>
+        </div>
+        {% else %}
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">S'inscrire</button>
+        <!-- Login buttons -->
+        <div class="text-center">
+            <p>Already a member? <a href="/get/login">Log In</a></p>
+        </div>
+        {% endif %}
+      
+        
+    </form>
+</div>
+{% endblock %}
