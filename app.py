@@ -17,11 +17,17 @@ def home():
 
 @app.route("/get/login")
 def getLogin():
-    return render_template("login.html", login=True)
+    if 'Accounts' in str(current_user):
+        return render_template("index.html")
+    else:
+        return render_template("login.html", login=True)
 
 @app.route("/get/signup")
 def getSignup():
-    return render_template("login.html", login=False)
+    if 'Accounts' in str(current_user):
+        return render_template("index.html")
+    else:
+        return render_template("login.html", login=False)
 
 
 @app.route('/login', methods=['POST'])
@@ -82,8 +88,9 @@ def load_user(id):
     
 def get_user_by_email(email):
     postgres = AccountDBConnection()
-    user = postgres.GetUserByPseudo(email)
+    user = postgres.GetUserByEmail(email)
     return user
 
 if __name__ == "__main__":
     app.run(debug=True)
+
