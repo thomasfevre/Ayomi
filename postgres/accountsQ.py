@@ -5,7 +5,7 @@ from postgres.tablesCreation import *
 
 class AccountDBConnection():
     def __init__(self) -> None:
-        self.engine = create_engine('postgresql://postgres:admin@localhost:5432/ayomi', echo=False, pool_size=20, max_overflow=30)
+        self.engine = create_engine('postgresql://postgres:admin@database:5432/ayomi', echo=False, pool_size=20, max_overflow=30)
         self.Session = sessionmaker(bind=engine)
         self.session = ''
 

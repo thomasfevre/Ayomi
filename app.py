@@ -92,5 +92,5 @@ def get_user_by_email(email):
     return user
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='127.0.0.1')
 
